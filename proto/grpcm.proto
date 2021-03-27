@@ -1,0 +1,16 @@
+syntax = "proto3";
+package pb;
+service StringServices {
+    rpc Concat (StringRequest) returns (StringResponse);
+    rpc  LotsOfserverStream(StringRequest) returns (stream StringResponse);
+    rpc LostR (stream StringRequest) returns (StringResponse);
+    rpc LostRe (stream StringRequest) returns (stream StringResponse);
+}
+message StringRequest {
+    string A =1;
+    string B =2;
+}
+message StringResponse {
+    string Msg=1;
+    string Err=2;
+}
